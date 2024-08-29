@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Students Frequency Control</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  </head>
+  <body style="background-color: lightgray">
+    <header>{% include 'header.html' %}</header>
+
+    <div
+      class="container"
+      style="
+        height: 80%;
+        width: 60%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 5%;
+      "
+    >
+      <h2>Students Frequency Control</h2>
+      <table class="table table-dark table-hover bg-lightgray table-bordered align-middle">
+        <thead>
+          <tr>
+            <th style="width: 50%">Teacher's name</th>
+            <th style="width: 5%">Frequency</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for nome, presencas in teachers.items(): %}
+          <tr>
+            <td style="vertical-align: middle">{{nome}}</td>
+            <td style="vertical-align: middle">{{presencas}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      {% if teachers|length == 0 %}
+        <div class="alert alert-warning" role="alert">No teachers found</div>
+      {% endif %}
+
+
+      {% if error %}
+      <div class="alert alert-danger" role="alert">{{ error }}</div>
+      {% endif %} {% if success %}
+      <div class="alert alert-success" role="alert">{{ success }}</div>
+      {% endif %}
+
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha384-KyZXE9v3x2a3v7zv7zv7zv7zv7zv7zv7zv7zv7zv7zv7zv7zv7zv7zv7zv7zv7z"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
