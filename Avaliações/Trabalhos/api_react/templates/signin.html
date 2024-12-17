@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head class="bg-dark">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>HOME</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="background-color: lightgray">
+    <header>{% include 'header.html' %}</header>
+
+    <div
+      style="
+        height: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 5%;
+      "
+    >
+      <h2 class="my-5" style="color: cornflowerblue">Flask - Login</h2>
+
+      <form action="{{url_for('signin')}}" method="POST" novalidate>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            id="name"
+            placeholder="Your name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            id="email"
+            aria-describedby="emailHelp"
+            placeholder="example@email.com"
+          />
+          <small id="emailHelp" class="form-text text-muted"
+            >We will never share your email with anyone.</small
+          >
+        </div>
+        <div class="form-group">
+          <label for="studentNumber">
+            Register Number</label>
+          <input
+            type="number"
+            class="form-control"
+            name="studentNumber"
+            id="studentNumber"
+            placeholder="Your Register Number"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            id="password"
+            placeholder="********"
+          />
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="isTeacher" name="isTeacher" />
+          <label class="form-check-label" for="isTeacher">
+              I'm a teacher
+          </label>
+        </div>
+        <div class="form-group">
+          <label style="color: brown;">        
+            {{error}}        
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <!-- Button to redirect to login page -->
+        <a href="{{ url_for('login') }}" class="btn btn-secondary">Go to o Login</a>
+      </form>
+    </div>
+  </body>
+</html>
